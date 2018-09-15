@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "b0a647c7-f45d-4802-913d-fa3ee84cf4a0",
+		"name": "MOVIES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://www.omdbapi.com/?plot=full&apikey=ae95f361&t=Star",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f63a40b-34a3-4c2e-b78f-09ec4f18e724",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Test 1 - Validate HTTP return - Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Test 2 - Validate Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Test 3 - Validate Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"USA\");",
+							"});",
+							"pm.test(\"JSON body check\", function ()  {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    tests[\"Verify if Title{} is Star\"] = jsonData.Title === \"Star\";",
+							"    tests[\"Verify the IMDB ID tt0286151\"] = jsonData.imdbID === \"tt0286151\";",
+							"    tests[\"Verify if Release Year is 2001\"] = jsonData.Year === \"2001\";",
+							"    tests[\"Verify if it has 3 different genres\"] = jsonData.Genre === \"Action, Short, Comedy\";",
+							"    tests[\"Verify movie not rated\"] = jsonData.Rated === \"NOT RATED\";",
+							"    tests[\"Verify if Release Date\"] = jsonData.Released === \"01 Jun 2001\";",
+							"    tests[\"Verify Plot\"] = jsonData.Plot === \"The Driver now carries an arrogant rock star who is visiting a major city (not Pittsburgh as earlier believed). Played by Madonna, this title character wants to get away from her bodyguards in the Driver's BMW. He soon gets tired of her and decides to have a bit of fun.\";",
+							"    tests[\"Verify Poster\"] = jsonData.Poster === \"https://m.media-amazon.com/images/M/MV5BMTY0NTY2NTUwNV5BMl5BanBnXkFtZTYwNzQxMzg5._V1_SX300.jpg\";",
+							"    tests[\"Verify Actor\"] = jsonData.Actors === \"Clive Owen, Michael Beattie, Toru Tanaka Jr., DTeflon\";",
+							"    tests[\"Verify Language\"] = jsonData.Language === \"English\";",
+							"    tests[\"Verify BoxOffice\"] = jsonData.BoxOffice === \"N/A\";",
+							"    tests[\"Verify Production\"] = jsonData.Production === \"N/A\";",
+							"    ",
+							"",
+							"    ",
+							"});",
+							"",
+							"",
+							"    "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "t",
+						"value": "star"
+					},
+					{
+						"key": "apikey",
+						"value": "ae95f361"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://www.omdbapi.com/?plot=full&apikey=ae95f361&t=Star",
+					"protocol": "http",
+					"host": [
+						"www",
+						"omdbapi",
+						"com"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "plot",
+							"value": "full"
+						},
+						{
+							"key": "apikey",
+							"value": "ae95f361"
+						},
+						{
+							"key": "t",
+							"value": "Star"
+						}
+					]
+				},
+				"description": "Collection - Filme Série Dayana"
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.omdbapi.com/?t=Breaking Bad&plot=full&apikey=ae95f361",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f191b1d2-7296-4db7-9b60-d9ca9d734a78",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Test 1 - Validate HTTP return - Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Test 2 - Validate Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Test 3 - Validate Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"USA\");",
+							"});",
+							"pm.test(\"JSON body check\", function ()  {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    tests[\"Verify if Title{} is Breaking Bad\"] = jsonData.Title === \"Breaking Bad\";",
+							"    tests[\"Verify the IMDB ID tt0903747\"] = jsonData.imdbID === \"tt0903747\";",
+							"    tests[\"Verify if Year is 2008-2013\"] = jsonData.Year === \"2008–2013\";",
+							"    tests[\"Verify if it has 3 different genres\"] = jsonData.Genre === \"Crime, Drama, Thriller\";",
+							"    tests[\"Verify rate\"] = jsonData.Rated === \"TV-MA\";",
+							"    tests[\"Verify if Release Date\"] = jsonData.Released === \"20 Jan 2008\";",
+							"    tests[\"Verify Director\"] = jsonData.Director === \"N/A\";",
+							"    tests[\"Verify Writer\"] = jsonData.Writer === \"Vince Gilligan\";",
+							"    tests[\"Verify Actors\"] = jsonData.Actors === \"Bryan Cranston, Anna Gunn, Aaron Paul, Dean Norris\";",
+							"    tests[\"Verify Language\"] = jsonData.Language === \"English, Spanish\";",
+							"    tests[\"Verify Awards\"] = jsonData.Awards === \"Won 2 Golden Globes. Another 144 wins & 225 nominations.\";",
+							"    tests[\"Verify Response\"] = jsonData.Response === \"True\";",
+							"    ",
+							"",
+							"    ",
+							"});",
+							"",
+							"",
+							"    "
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "t",
+						"value": "Breaking Bad"
+					},
+					{
+						"key": "apikey",
+						"value": "ae95f361"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://www.omdbapi.com/?t=Breaking Bad&plot=full&apikey=ae95f361",
+					"protocol": "http",
+					"host": [
+						"www",
+						"omdbapi",
+						"com"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "Breaking Bad"
+						},
+						{
+							"key": "plot",
+							"value": "full"
+						},
+						{
+							"key": "apikey",
+							"value": "ae95f361"
+						}
+					]
+				},
+				"description": "Collection - Filme Série Dayana"
+			},
+			"response": []
+		}
+	]
+}
